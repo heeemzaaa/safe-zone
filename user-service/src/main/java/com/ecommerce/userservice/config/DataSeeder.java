@@ -10,6 +10,7 @@ import com.ecommerce.userservice.model.User;
 import com.ecommerce.userservice.repository.UserRepository;
 
 @Configuration
+// comment
 public class DataSeeder {
 
     @Bean
