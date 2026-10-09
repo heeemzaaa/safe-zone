@@ -5,7 +5,6 @@ on:
     paths:
       - 'api-gateway/**'
   push:
-    branches: [main]
     paths:
       - 'api-gateway/**'
 
@@ -44,3 +43,12 @@ jobs:
           SSL_KEYSTORE_PASSWORD: ${{ secrets.SSL_KEYSTORE_PASSWORD }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
         run: mvn -B verify
+
+      - name: SonarQube Scan
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: >
+          mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:5.8.0.7211:sonar
+          -Dsonar.projectKey=api-gateway
+          -Dsonar.qualitygate.wait=true
