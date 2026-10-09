@@ -17,7 +17,8 @@ jobs:
         working-directory: api-gateway
     steps:
       - uses: actions/checkout@v4
-
+        with:
+          fetch-depth: 0
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
