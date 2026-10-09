@@ -38,3 +38,12 @@ jobs:
 
       - name: Build and test
         run: mvn -B verify
+
+      - name: SonarQube Scan
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: >
+          mvn -B sonar:sonar
+          -Dsonar.projectKey=product-service
+          -Dsonar.qualitygate.wait=true
