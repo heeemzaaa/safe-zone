@@ -5,7 +5,6 @@ on:
     paths:
       - 'frontend/**'
   push:
-    branches: [main]
     paths:
       - 'frontend/**'
 
@@ -30,7 +29,22 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npm test
+        run: npx ng test --coverage --coverage-reporters=lcov --watch=false
 
       - name: Build
         run: npm run build
+
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v8
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          projectBaseDir: frontend
+          args: >
+            -Dsonar.projectKey=frontend
+            -Dsonar.sources=src
+            -Dsonar.tests=src
+            -Dsonar.test.inclusions=**/*.spec.ts
+            -Dsonar.javascript.lcov.reportPaths=coverage/frontend/lcov.info
+            -Dsonar.qualitygate.wait=true
