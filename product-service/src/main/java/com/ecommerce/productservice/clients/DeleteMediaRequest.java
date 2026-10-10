@@ -4,6 +4,6 @@ import java.util.List;
 
 
 // test product service
-// second test 3
+// second test 5
 public record DeleteMediaRequest(String targetType, String targetId, List<String> imagePaths) {
 }
