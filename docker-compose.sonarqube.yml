@@ -1,3 +1,5 @@
+name: sonarqube
+
 services:
 
   sonarqube-db:
@@ -30,9 +32,13 @@ services:
 
 volumes:
   sonarqube_db_data:
+    name: safe-zone_sonarqube_db_data
   sonarqube_data:
+    name: safe-zone_sonarqube_data
   sonarqube_logs:
+    name: safe-zone_sonarqube_logs
   sonarqube_extensions:
+    name: safe-zone_sonarqube_extensions
 
 networks:
   default:
