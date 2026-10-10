@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Configuration;
 import com.ecommerce.productservice.models.Product;
 import com.ecommerce.productservice.repositories.ProductRepository;
 
+
+// test here
 @Configuration
 public class DataSeeder {
 
