@@ -1,5 +1,6 @@
 package com.ecommerce.userservice.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,11 +10,13 @@ import com.ecommerce.userservice.enums.UserRole;
 import com.ecommerce.userservice.model.User;
 import com.ecommerce.userservice.repository.UserRepository;
 
-
 // test user service
 @Configuration
 // comment
 public class DataSeeder {
+
+    @Value("${app.security.default-user-password}")
+    private String defaultPassword;
 
     @Bean
     CommandLineRunner seedUsers(
@@ -24,22 +27,20 @@ public class DataSeeder {
             if (repository.count() == 0) {
 
                 repository.save(
-                    User.builder()
-                        .name("Ayoub Nachti")
-                        .email("ayoub@gmail.com")
-                        .role(UserRole.CLIENT)
-                        .password(passwordEncoder.encode("12345678"))
-                        .build()
-                );
+                        User.builder()
+                                .name("Ayoub Nachti")
+                                .email("ayoub@gmail.com")
+                                .role(UserRole.CLIENT)
+                                .password(passwordEncoder.encode(defaultPassword))
+                                .build());
 
                 repository.save(
-                    User.builder()
-                        .name("Bob Walts")
-                        .email("Bob@gmail.com")
-                        .role(UserRole.CLIENT)
-                        .password(passwordEncoder.encode("12345678"))
-                        .build()
-                );
+                        User.builder()
+                                .name("Bob Walts")
+                                .email("Bob@gmail.com")
+                                .role(UserRole.CLIENT)
+                                .password(passwordEncoder.encode(defaultPassword))
+                                .build());
             }
         };
     }
