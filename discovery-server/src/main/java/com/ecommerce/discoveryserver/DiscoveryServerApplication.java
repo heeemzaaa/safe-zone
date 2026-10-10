@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 // test discovery service
-// test here 2
+// test here 3
 @SpringBootApplication
 @EnableEurekaServer
 public class DiscoveryServerApplication {

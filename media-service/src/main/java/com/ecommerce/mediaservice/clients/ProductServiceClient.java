@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.ecommerce.mediaservice.common.ResponseData;
 import com.ecommerce.mediaservice.dtos.Product;
 
-// test media service 1
+// test media service 2
 @FeignClient(name = "product-service")
 public interface ProductServiceClient {
     

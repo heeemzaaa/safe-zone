@@ -10,7 +10,7 @@ import com.ecommerce.userservice.enums.UserRole;
 import com.ecommerce.userservice.model.User;
 import com.ecommerce.userservice.repository.UserRepository;
 
-// test user service 4
+// test user service 5
 @Configuration
 // comment
 public class DataSeeder {

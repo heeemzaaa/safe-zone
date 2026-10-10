@@ -9,7 +9,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-// test api gateway again 2
+// test api gateway again 3
 // test coverage
 @Configuration
 public class CorsConfig {
