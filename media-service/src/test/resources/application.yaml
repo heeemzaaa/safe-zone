@@ -1,0 +1,6 @@
+cloudinary:
+  url: cloudinary://123456789012345:abcdefghijklmnopqrstuvwxyz12@demo
+
+eureka:
+  client:
+    enabled: false
