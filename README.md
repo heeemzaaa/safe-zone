@@ -2,6 +2,8 @@
 
 An end-to-end e-commerce platform built as **Spring Boot microservices** behind an API gateway, with an **Angular** frontend. Users register as **clients** or **sellers** — sellers manage products and their photos, clients browse and view them.
 
+Code quality and security are checked by **SonarQube** on every push — see [SONARQUBE.md](SONARQUBE.md).
+
 [![API Gateway CI](https://github.com/ayoubnachti/buy-01/actions/workflows/api-gateway-ci.yml/badge.svg)](https://github.com/ayoubnachti/buy-01/actions/workflows/api-gateway-ci.yml)
 [![Discovery Server CI](https://github.com/ayoubnachti/buy-01/actions/workflows/discovery-server-ci.yml/badge.svg)](https://github.com/ayoubnachti/buy-01/actions/workflows/discovery-server-ci.yml)
 [![User Service CI](https://github.com/ayoubnachti/buy-01/actions/workflows/user-service-ci.yml/badge.svg)](https://github.com/ayoubnachti/buy-01/actions/workflows/user-service-ci.yml)

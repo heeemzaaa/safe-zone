@@ -52,3 +52,13 @@ jobs:
           mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:5.8.0.7211:sonar
           -Dsonar.projectKey=api-gateway
           -Dsonar.qualitygate.wait=true
+
+  # Deploy only after build, tests and the SonarQube quality gate have passed,
+  # and only for pushes to main (never for pull requests or other branches).
+  deploy:
+    needs: build-and-test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/deploy.yml
+    with:
+      service: api-gateway
+    secrets: inherit
