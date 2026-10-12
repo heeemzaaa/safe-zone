@@ -32,3 +32,16 @@ jobs:
             git checkout main
             git merge --ff-only ${{ github.sha }}
             docker compose up -d --build ${{ inputs.service }}
+
+            echo "Waiting for ${{ inputs.service }} to become healthy..."
+            for i in $(seq 1 15); do
+              status=$(docker inspect --format='{{.State.Health.Status}}' ${{ inputs.service }})
+              if [ "$status" = "healthy" ]; then
+                echo "${{ inputs.service }} is healthy."
+                exit 0
+              fi
+              echo "Status: $status (attempt $i/15)"
+              sleep 5
+            done
+            echo "${{ inputs.service }} did not become healthy in time."
+            exit 1
